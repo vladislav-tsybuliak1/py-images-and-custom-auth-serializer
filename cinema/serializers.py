@@ -62,6 +62,9 @@ class MovieListSerializer(MovieSerializer):
     )
     image = serializers.ImageField(read_only=True)
 
+    class Meta(MovieSerializer.Meta):
+        fields = MovieSerializer.Meta.fields + ("image",)
+
 
 class MovieDetailSerializer(MovieSerializer):
     genres = GenreSerializer(many=True, read_only=True)
